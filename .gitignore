@@ -1,0 +1,63 @@
+# Data files (proprietary - not included per client requirements)
+data/*.csv
+data/*.xlsx
+data/*.json
+!data/.gitkeep
+!data/README.md
+
+# Model files (generated locally)
+models/*.joblib
+models/*.pkl
+models/*.h5
+!models/.gitkeep
+!models/README.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+
+# Poetry
+poetry.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Testing
+coverage.xml
+*.cover
+.hypothesis/
+
+# Docker volumes
+docker/volumes/
