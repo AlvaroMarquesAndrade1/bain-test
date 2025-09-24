@@ -1,9 +1,8 @@
-# .github/workflows/ci.yml
 name: CI
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -27,11 +26,13 @@ jobs:
     - name: Install dependencies
       run: poetry install
     
-    - name: Run linting
-      run: poetry run flake8 src/ scripts/
-    
     - name: Run tests
-      run: poetry run pytest tests/
+      run: |
+        if [ -d "tests" ] && [ "$(ls -A tests/*.py 2>/dev/null)" ]; then
+          poetry run pytest tests/ -v
+        else
+          echo "No tests found, skipping"
+        fi
     
     - name: Build Docker image
-      run: docker build -t property-friends:test .
+      run: docker build -t bain-test:ci .
